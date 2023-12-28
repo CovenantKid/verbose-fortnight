@@ -6,9 +6,9 @@ const ShortUniqueId = require('short-unique-id');
 const uid = new ShortUniqueId({ length: 12 })
 const process = require('process');
 
-process.chdir("C:\\users\\bradr\\school\\modules\\module11\\verbose-fortnight\\public")
+process.chdir('..\\public');
+console.log('Currentdir ' + process.cwd());
 
-app.use(express.static('/public'))
 
 // gets relevent HTML files to serve.
 app.get('/', (req, res) => {
