@@ -1,10 +1,11 @@
-const express = require('express')
-const app = express()
-const port = 3001
+const express = require('express');
+const app = express();
+const port = 3001;
 const path = require('path');
 const ShortUniqueId = require('short-unique-id');
-const uid = new ShortUniqueId({ length: 12 })
+const uid = new ShortUniqueId({ length: 12 });
 const process = require('process');
+const fs = require('fs');
 
 process.chdir('..\\public');
 console.log('Currentdir ' + process.cwd());
@@ -20,12 +21,25 @@ app.get('/notes', (req, res) => {
   res.sendFile(path.resolve('notes.html'))
   console.log("request made for notes")
 })
-// app.get('/api/notes', (req,res)=> {
-//   // read the file and return the notes 
-//   console.log("sent DB file")
-// })
 
-// logs the port. 
+
+// sends the DB file as JSON, the conversion and gathering of this json is done via a function.
+ app.get('/api/notes', (req,res)=> {
+  let JSONDB = getjson() 
+  console.log("sent DB file, as follows.")
+  console.log (String(JSONDB))
+  res.send(JSONDB)
+  
+ })
+
+// logs the port being used. 
 app.listen(port, () => {
   console.log(`note app listening on port ${port}`)
 })
+
+
+function getjson(){
+ let Data = fs.readFileSync("..\\db\\db.json")
+ JSON.stringify(Data)
+ return Data
+}
