@@ -20,7 +20,7 @@ app.get('/notes', (req, res) => {
   console.log("request made for notes")
 })
 
-
+// too be used to send JSONDB to client
  app.get('/api/notes', (req,res)=> {
   let JSONDB = getjson() 
   console.log("sent DB file, as follows.")
