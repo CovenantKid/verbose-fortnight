@@ -5,10 +5,9 @@ const ShortUniqueId = require('short-unique-id');
 const uid = new ShortUniqueId({ length: 12 });
 const process = require('process');
 const fs = require('fs');
-const port = process.env.PORT || 3000
-process.chdir('..\\public');
+process.chdir('public');
 console.log('Currentdir ' + process.cwd());
-
+const port = process.env.PORT || 3000
 
 // gets relevent HTML files to serve.
 app.get('/', (req, res) => {
