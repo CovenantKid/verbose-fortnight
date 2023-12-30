@@ -1,12 +1,11 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000
 const path = require('path');
 const ShortUniqueId = require('short-unique-id');
 const uid = new ShortUniqueId({ length: 12 });
 const process = require('process');
 const fs = require('fs');
-
+const port = process.env.PORT || 3000
 process.chdir('..\\public');
 console.log('Currentdir ' + process.cwd());
 
