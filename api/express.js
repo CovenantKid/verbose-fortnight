@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3000
 const path = require('path');
 const ShortUniqueId = require('short-unique-id');
 const uid = new ShortUniqueId({ length: 12 });
@@ -23,7 +23,6 @@ app.get('/notes', (req, res) => {
 })
 
 
-// sends the DB file as JSON, the conversion and gathering of this json is done via a function.
  app.get('/api/notes', (req,res)=> {
   let JSONDB = getjson() 
   console.log("sent DB file, as follows.")
