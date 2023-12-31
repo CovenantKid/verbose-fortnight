@@ -1,3 +1,4 @@
+// imports
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -5,8 +6,12 @@ const ShortUniqueId = require('short-unique-id');
 const uid = new ShortUniqueId({ length: 12 });
 const process = require('process');
 const fs = require('fs');
+// set the directory to look for files and log it
 process.chdir('public');
 console.log('Currentdir ' + process.cwd());
+
+
+// port to be used
 const port = process.env.PORT || 3000
 
 // gets relevent HTML files to serve.
@@ -20,11 +25,16 @@ app.get('/notes', (req, res) => {
   console.log("request made for notes")
 })
 
+app.get('/assets/index.js', (req, res) => {
+  res.sendFile(path.resolve('..\\public\\assets\\index.js'));
+  console.log("request made for scripts")
+})
+
 // too be used to send JSONDB to client
  app.get('/api/notes', (req,res)=> {
   let JSONDB = getjson() 
-  console.log("sent DB file, as follows.")
-  console.log (String(JSONDB))
+  // console.log("sent DB file, as follows.")
+  // console.log (String(JSONDB))
   res.send(JSONDB)
   
  })
