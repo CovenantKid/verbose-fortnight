@@ -10,7 +10,6 @@ const fs = require('fs');
 process.chdir('public');
 console.log('Currentdir ' + process.cwd());
 
-
 // port to be used
 const port = process.env.PORT || 3000
 
@@ -26,7 +25,7 @@ app.get('/notes', (req, res) => {
 })
 
 app.get('/assets/index.js', (req, res) => {
-  res.sendFile(path.resolve('..\\public\\assets\\index.js'));
+  res.sendFile(path.resolve('..\\assets\\index.js'));
   console.log("request made for scripts")
 })
 app.get('/assets/styles.css', (req, res) => {
@@ -37,10 +36,8 @@ app.get('/assets/styles.css', (req, res) => {
 // too be used to send JSONDB to client
  app.get('/api/notes', (req,res)=> {
   let JSONDB = getjson() 
-  // console.log("sent DB file, as follows.")
-  // console.log (String(JSONDB))
+  console.log("sent DB file")
   res.send(JSONDB)
-  
  })
 
 // logs the port being used. 
