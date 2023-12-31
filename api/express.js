@@ -29,6 +29,10 @@ app.get('/assets/index.js', (req, res) => {
   res.sendFile(path.resolve('..\\public\\assets\\index.js'));
   console.log("request made for scripts")
 })
+app.get('/assets/styles.css', (req, res) => {
+  res.sendFile(path.resolve('..\\public\\assets\\styles.css'));
+  console.log("request made for styles")
+})
 
 // too be used to send JSONDB to client
  app.get('/api/notes', (req,res)=> {
