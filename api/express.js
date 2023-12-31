@@ -9,7 +9,7 @@ const fs = require('fs');
 // set the directory to look for files and log it
 process.chdir('public');
 console.log('Currentdir ' + process.cwd());
-
+app.use(express.static('public'))
 // port to be used
 const port = process.env.PORT || 3000
 
