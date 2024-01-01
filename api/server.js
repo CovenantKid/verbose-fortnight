@@ -25,7 +25,7 @@ app.get('/notes', (req, res) => {
   console.log("request made for notes")
   console.log(process.cwd())
 })
-
+// relevant scripts for html pages.
 app.get('/index.js', (req, res) => {
   res.sendFile(path.resolve('..\\public\\index.js'));
   console.log("request made for scripts")
@@ -36,6 +36,13 @@ app.get('/styles.css', (req, res) => {
   console.log("request made for styles")
   console.log(process.cwd())
 })
+
+app.post("/notes"), (req,res) => {
+console.log("request for post to notes DB")
+res.send(data)
+data = getjson()
+console.log(req.body)
+}
 
 // too be used to send JSONDB to client
  app.get('/api/notes', (req,res)=> {
