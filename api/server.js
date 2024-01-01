@@ -9,7 +9,7 @@ const fs = require('fs');
 // set the directory to look for files and log it
 process.chdir('public');
 console.log('Currentdir ' + process.cwd());
-app.use(express.static('public\\assets'))
+app.use(express.static('public'))
 // port to be used
 const port = process.env.PORT || 3000
 
@@ -24,11 +24,11 @@ app.get('/notes', (req, res) => {
   console.log("request made for notes")
 })
 
-app.get('/assets/index.js', (req, res) => {
+app.get('/index.js', (req, res) => {
   res.sendFile(path.resolve('..\\public\\index.js'));
   console.log("request made for scripts")
 })
-app.get('/assets/styles.css', (req, res) => {
+app.get('/styles.css', (req, res) => {
   res.sendFile(path.resolve('..\\public\\styles.css'));
   console.log("request made for styles")
 })
