@@ -17,20 +17,24 @@ const port = process.env.PORT || 3000
 app.get('/', (req, res) => {
   res.sendFile(path.resolve('index.html'));
   console.log("request made for root")
+  console.log(process.cwd())
 })
 
 app.get('/notes', (req, res) => {
   res.sendFile(path.resolve('notes.html'))
   console.log("request made for notes")
+  console.log(process.cwd())
 })
 
 app.get('/index.js', (req, res) => {
   res.sendFile(path.resolve('..\\public\\index.js'));
   console.log("request made for scripts")
+  console.log(process.cwd())
 })
 app.get('/styles.css', (req, res) => {
   res.sendFile(path.resolve('..\\public\\styles.css'));
   console.log("request made for styles")
+  console.log(process.cwd())
 })
 
 // too be used to send JSONDB to client
